@@ -93,12 +93,10 @@ export function TaskList() {
 
         <header className={styles.header}>
           <h1>
-            Tarefas criadas
-            <span>{taskCount}</span>
+            Tarefas criadas <span>{taskCount}</span>
           </h1>
           <h2>
-            Concluidas
-            <span>{taskConcludeCount}</span>
+            Concluidas <span>{taskConcludeCount}</span>
           </h2>
         </header>
 
@@ -106,12 +104,18 @@ export function TaskList() {
           <div className={styles.cardList}>
             {tasks.map((task) => (
               <div className={styles.card}>
-                <input
-                  type="checkbox"
-                  defaultChecked={task.conclude}
-                  onClick={() => handleConcludeTask(task.id)}
-                />
-                <p>{task.title}</p>
+                <div className={styles.cardText}>
+                  <label className={styles.customCheckbox}>
+                    <input
+                      type="checkbox"
+                      defaultChecked={task.conclude}
+                      onClick={() => handleConcludeTask(task.id)}
+                    />
+                    <span className={styles.checkmark}>✓</span>
+                  </label>
+
+                  {task.conclude ? <s>{task.title}</s> : <p>{task.title}</p>}
+                </div>
 
                 <button onClick={() => handleDeleteTask(task.id)}>
                   <Trash size={24} />

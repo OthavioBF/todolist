@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./Header.module.css";
-import { PlusCircle, Rocket } from "phosphor-react";
+import { Rocket } from "phosphor-react";
 
 export function Header() {
   return (
